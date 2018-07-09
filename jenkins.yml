@@ -2,6 +2,6 @@
 - hosts: webserver
   sudo: true
   roles:
+    -  maven3
     -  ansible-java8-oracle
     -  jenkins
-
