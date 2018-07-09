@@ -1,0 +1,19 @@
+---
+- name: Install add-apt-repostory
+  become: yes
+  apt: name=software-properties-common state=latest
+
+- name: Add maven Java Repository
+  become: yes
+  apt_repository: repo='ppa:andrei-pozolotin/maven3 '
+
+#- name: Accept Java 8 License
+#  become: yes
+#  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Install maven3
+  become: yes
+  apt: name={{item}} state=latest
+  with_items:
+    - maven3
+    
